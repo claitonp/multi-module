@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.com.claitonp</groupId>
+		<artifactId>multi-module</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>multi-api</artifactId>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.claitonp</groupId>
+			<artifactId>multi-user</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.com.claitonp</groupId>
+			<artifactId>multi-email</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+	
+	
+<!--     <build> -->
+<!--         <finalName>${project.artifactId}</finalName>         -->
+<!--         <plugins> -->
+              
+<!--             <plugin> -->
+<!--                <artifactId>maven-compiler-plugin</artifactId> -->
+<!--             </plugin> -->
+<!--         </plugins> -->
+<!--     </build> -->
+    
+<!-- 	<build> -->
+<!--         <finalName>${project.artifactId}</finalName>       -->
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-shade-plugin</artifactId> -->
+<!-- 				<version>2.4.3</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>create-fat-jar</id> -->
+<!-- 						<phase>package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>shade</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<transformers> -->
+<!-- 								add Main-Class to manifest file -->
+<!-- 								<transformer -->
+<!-- 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"> -->
+<!-- 									<mainClass>com.roytuts.web.service.WebServiceApp</mainClass> -->
+<!-- 								</transformer> -->
+<!-- 							</transformers> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+<!-- 		</plugins> -->
+<!-- 	</build>   -->
+	<build>
+        <finalName>${project.artifactId}</finalName>        
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<mainClass>${class.main}</mainClass>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+   
+</project>
